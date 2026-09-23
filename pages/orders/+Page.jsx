@@ -22,6 +22,7 @@ export default function Page() {
 
   const [customerName, setCustomerName] = useState("");
   const [address, setAddress] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState("Cash");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleConfirmOrder = (event) => {
@@ -31,7 +32,9 @@ export default function Page() {
       return;
     }
 
-    const savedOrders = JSON.parse(localStorage.getItem("orders") || "[]");
+    const normalizedUser = customerName.trim().toLowerCase();
+    const orderKey = `orders_${normalizedUser}`;
+    const savedOrders = JSON.parse(localStorage.getItem(orderKey) || "[]");
     const newOrder = {
       id: Date.now(),
       name: foodName,
@@ -40,11 +43,13 @@ export default function Page() {
       total: totalPrice,
       customerName,
       address,
+      paymentMethod,
       status: "Sedang diantar",
       note: "Pesanan sedang dalam perjalanan ke lokasi Anda.",
     };
 
-    localStorage.setItem("orders", JSON.stringify([newOrder, ...savedOrders]));
+    sessionStorage.setItem("currentUser", customerName.trim());
+    localStorage.setItem(orderKey, JSON.stringify([newOrder, ...savedOrders]));
     setIsSubmitted(true);
   };
 
@@ -88,6 +93,38 @@ export default function Page() {
                   rows={4}
                 />
               </label>
+
+              <fieldset className="payment-fieldset">
+                <legend>Metode Pembayaran</legend>
+                <div className="payment-options">
+                  {[
+                    { value: "Cash", label: "Cash", detail: "Bayar saat pesanan diterima" },
+                    { value: "Transfer", label: "Transfer", detail: "Transfer ke rekening restoran" },
+                  ].map((option) => (
+                    <label
+                      key={option.value}
+                      className={`payment-option ${paymentMethod === option.value ? "selected" : ""}`}
+                    >
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        value={option.value}
+                        checked={paymentMethod === option.value}
+                        onChange={(event) => setPaymentMethod(event.target.value)}
+                      />
+                      <span>
+                        <strong>{option.label}</strong>
+                        <small>{option.detail}</small>
+                      </span>
+                    </label>
+                  ))}
+                </div>
+                {paymentMethod === "Transfer" && (
+                  <p className="payment-note">
+                    Rekening BCA 123456789 a.n. Rasa Nusantara
+                  </p>
+                )}
+              </fieldset>
 
               <button type="submit" className="confirm-order">
                 Konfirmasi Pesanan

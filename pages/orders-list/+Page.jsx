@@ -1,31 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 
-const defaultOrders = [
-  {
-    id: 1,
-    name: "Nasi Goreng Spesial",
-    image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b",
-    qty: 2,
-    total: 50000,
-    customerName: "Rina",
-    address: "Jl. Merdeka No. 10, Bandung",
-    status: "Sedang diantar",
-    note: "Kurir sedang menuju lokasi.",
-  },
-  {
-    id: 2,
-    name: "Ayam Bakar",
-    image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6",
-    qty: 1,
-    total: 30000,
-    customerName: "Dika",
-    address: "Jl. Cendana No. 4, Bogor",
-    status: "Diproses",
-    note: "Pesanan sedang dibuat di dapur.",
-  },
-];
-
 const formatMoney = (value) =>
   new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -52,11 +27,14 @@ const getStatusClass = (status) => {
 };
 
 export default function Page() {
-  const [orders, setOrders] = useState(defaultOrders);
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const storedOrders = JSON.parse(localStorage.getItem("orders") || "[]");
-    if (storedOrders.length > 0) {
+    const currentUser = sessionStorage.getItem("currentUser");
+
+    if (currentUser) {
+      const orderKey = `orders_${currentUser.trim().toLowerCase()}`;
+      const storedOrders = JSON.parse(localStorage.getItem(orderKey) || "[]");
       setOrders(storedOrders);
     }
   }, []);
@@ -92,6 +70,9 @@ export default function Page() {
                     <p>
                       <strong>Total:</strong> {formatMoney(order.total)}
                     </p>
+                    <p>
+                      <strong>Pembayaran:</strong> {order.paymentMethod || "Cash"}
+                    </p>
 
                     <div className="order-meta">
                       <span className={`status-badge ${getStatusClass(order.status)}`}>
@@ -107,7 +88,7 @@ export default function Page() {
 
           <div className="page-actions">
             <a href="/" className="back-home-button">
-              Kembali ke Home
+              Kembali ke Beranda
             </a>
           </div>
         </div>
