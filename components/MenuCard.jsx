@@ -1,4 +1,4 @@
-function MenuCard({ image, name, description, price }) {
+export default function MenuCard({ image, name, description, price }) {
   return (
     <div className="menu-card">
       <img src={image} alt={name} />
@@ -17,5 +17,3 @@ function MenuCard({ image, name, description, price }) {
     </div>
   );
 }
-
-export default MenuCard;

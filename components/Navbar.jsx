@@ -1,51 +1,14 @@
-function Navbar() {
-  const handleLogout = () => {
-    // Hapus status login
-    localStorage.removeItem("isLoggedIn");
-
-    // Kembali ke halaman login
-    window.location.href = "/login";
-  };
-
+export default function Navbar() {
   return (
     <nav className="navbar">
+      <div className="logo">Rasa Nusantara</div>
 
-      {/* Logo */}
-      <div className="logo">
-        🍽️ Rasa Nusantara
-      </div>
-
-      {/* Menu Navigasi */}
       <div className="nav-menu">
-
-        <a href="/">
-          Home
+        <a href="/orders-list" className="order-list-link">
+          List Pesanan
         </a>
-
-        <a href="/menu">
-          Menu
-        </a>
-
-        <a href="/#about">
-          Tentang
-        </a>
-
-        <a href="/#contact">
-          Kontak
-        </a>
-
-        <button
-          type="button"
-          className="logout-button"
-          onClick={handleLogout}
-        >
-          Logout
-        </button>
-
       </div>
-
     </nav>
   );
 }
 
-export default Navbar;
