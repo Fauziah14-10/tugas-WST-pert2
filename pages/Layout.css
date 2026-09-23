@@ -1,29 +1,865 @@
-/* Links */
-a {
-  text-decoration: none;
-}
-#sidebar a {
-  padding: 2px 10px;
-  margin-left: -10px;
-}
-#sidebar a.is-active {
-  background-color: #eee;
-}
+/* =========================
+   GLOBAL
+========================= */
 
-/* Reset */
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-/* Page Transition Animation */
-#page-content {
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+html {
+  scroll-behavior: smooth;
 }
-body.page-transition #page-content {
-  opacity: 0;
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f7f4;
+  color: #333;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  height: 70px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 8%;
+
+  background: white;
+  border-bottom: 1px solid #eee;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2d211b;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+
+  transition: 0.2s;
+}
+
+.nav-menu a:hover {
+  color: #b45f06;
+}
+
+
+/* =========================
+   LOGOUT BUTTON
+========================= */
+
+.logout-button {
+  border: none;
+
+  padding: 9px 16px;
+
+  background: #b45f06;
+  color: white;
+
+  border-radius: 7px;
+
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.logout-button:hover {
+  background: #8f4b05;
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 550px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 60px 8%;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4")
+    center / cover;
+}
+
+.hero-content {
+  max-width: 600px;
+  color: white;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-size: 60px;
+
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.7;
+
+  margin-bottom: 30px;
+}
+
+.hero-button {
+  display: inline-block;
+
+  padding: 14px 25px;
+
+  background: #b45f06;
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  transition: 0.2s;
+}
+
+.hero-button:hover {
+  background: #8f4b05;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+  text-align: center;
+
+  max-width: 800px;
+
+  margin: auto;
+
+  padding: 80px 20px;
+}
+
+.about h2 {
+  font-size: 35px;
+
+  margin-bottom: 20px;
+
+  color: #2d211b;
+}
+
+.about p {
+  line-height: 1.8;
+
+  color: #666;
+
+  margin-bottom: 15px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+  padding: 80px 8%;
+
+  background: white;
+
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 35px;
+
+  margin-bottom: 40px;
+
+  color: #2d211b;
+}
+
+.contact-container {
+  max-width: 1000px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 25px;
+}
+
+.contact-item {
+  padding: 25px;
+
+  background: #f8f7f4;
+
+  border-radius: 12px;
+}
+
+.contact-item h3 {
+  margin-bottom: 12px;
+
+  font-size: 18px;
+
+  color: #8b4513;
+}
+
+.contact-item p {
+  color: #666;
+
+  line-height: 1.6;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 25px;
+
+  background: #2d211b;
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   MENU PAGE
+========================= */
+
+.menu-page {
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 70px 20px;
+}
+
+.menu-header {
+  text-align: center;
+
+  margin-bottom: 50px;
+}
+
+.menu-header h1 {
+  font-size: 42px;
+
+  margin: 10px 0 15px;
+
+  color: #2d211b;
+}
+
+.menu-header p {
+  color: #777;
+}
+
+
+/* =========================
+   MENU GRID
+========================= */
+
+.menu-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+
+/* =========================
+   MENU CARD
+========================= */
+
+.menu-card {
+  background: white;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.menu-card img {
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: cover;
+}
+
+.menu-content {
+  padding: 20px;
+}
+
+.menu-content h3 {
+  font-size: 21px;
+
+  margin-bottom: 10px;
+
+  color: #2d211b;
+}
+
+.menu-content p {
+  color: #777;
+
+  line-height: 1.5;
+
+  min-height: 45px;
+}
+
+.menu-bottom {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.price {
+  font-weight: bold;
+
+  font-size: 18px;
+
+  color: #8b4513;
+}
+
+.menu-bottom button {
+  border: none;
+
+  padding: 10px 18px;
+
+  border-radius: 7px;
+
+  background: #b45f06;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.menu-bottom button:hover {
+  background: #8f4b05;
+}
+
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.login-page {
+  min-height: 100vh;
+
+  position: relative;
+
+  background-image:
+    url("/images/login-food.jpeg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* =========================
+   LOGIN OVERLAY
+========================= */
+
+.login-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.58);
+}
+
+
+/* =========================
+   LOGIN CONTENT
+========================= */
+
+.login-content {
+  position: relative;
+
+  z-index: 2;
+
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 50px 20px;
+}
+
+
+/* =========================
+   LOGIN CARD
+========================= */
+
+.login-card {
+  width: 100%;
+
+  max-width: 430px;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  border-radius: 20px;
+
+  padding: 42px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3);
+
+  text-align: center;
+}
+
+
+/* =========================
+   LOGIN LOGO
+========================= */
+
+.login-logo {
+  width: 65px;
+  height: 65px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #8b4513;
+
+  border-radius: 50%;
+
+  font-size: 30px;
+
+  box-shadow:
+    0 8px 20px rgba(139, 69, 19, 0.25);
+}
+
+
+/* =========================
+   LOGIN TITLE
+========================= */
+
+.login-card h1 {
+  margin: 0;
+
+  font-size: 30px;
+
+  color: #2d211b;
+
+  font-weight: 700;
+}
+
+.login-subtitle {
+  margin: 10px 0 30px;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   LOGIN INPUT
+========================= */
+
+.input-group {
+  text-align: left;
+
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #33251f;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"] {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px 16px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition: 0.2s;
+}
+
+.input-group input[type="email"]:focus,
+.input-group input[type="password"]:focus {
+  border-color: #8b4513;
+
+  box-shadow:
+    0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+
+/* =========================
+   PASSWORD LABEL
+========================= */
+
+.password-label {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.password-label a {
+  color: #8b4513;
+
+  font-size: 12px;
+
+  text-decoration: none;
+}
+
+.password-label a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   REMEMBER ME
+========================= */
+
+.remember {
+  text-align: left;
+
+  margin-bottom: 22px;
+}
+
+.remember label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #666;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.remember input {
+  width: 15px;
+
+  height: 15px;
+
+  accent-color: #8b4513;
+}
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-button {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #8b4513;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.login-button:hover {
+  background: #6f350f;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 20px rgba(139, 69, 19, 0.25);
+}
+
+
+/* =========================
+   LOGIN DIVIDER
+========================= */
+
+.divider {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 28px 0;
+
+  color: #aaa;
+
+  font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background: #e5e5e5;
+}
+
+
+/* =========================
+   REGISTER
+========================= */
+
+.register-text {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+.register-text a {
+  color: #8b4513;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   BACK HOME
+========================= */
+
+.back-home {
+  display: inline-block;
+
+  margin-top: 25px;
+
+  color: #555;
+
+  font-size: 13px;
+
+  text-decoration: none;
+}
+
+.back-home:hover {
+  color: #8b4513;
+}
+
+
+/* =========================
+   RESPONSIVE - TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  .nav-menu {
+    gap: 15px;
+  }
+
+}
+
+
+/* =========================
+   RESPONSIVE - MOBILE
+========================= */
+
+@media (max-width: 550px) {
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .nav-menu {
+    gap: 10px;
+  }
+
+  .nav-menu a {
+    font-size: 13px;
+  }
+
+  .logout-button {
+    padding: 7px 10px;
+
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 500px;
+
+    padding: 50px 25px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .about {
+    padding: 60px 25px;
+  }
+
+  .about h2,
+  .contact h2 {
+    font-size: 30px;
+  }
+
+}
+
+
+/* =========================
+   LOGIN RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+  .login-content {
+    padding: 30px 15px;
+  }
+
+  .login-card {
+    padding: 32px 24px;
+
+    border-radius: 16px;
+  }
+
+  .login-card h1 {
+    font-size: 26px;
+  }
+
+  .login-error {
+  color: #d32f2f;
+  font-size: 13px;
+  text-align: left;
+  margin: -5px 0 15px;
+}
 }
