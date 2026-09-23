@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { navigate } from "vike/client/router";
 import Navbar from "../../components/Navbar";
 
+
 export default function Page() {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");

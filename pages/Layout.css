@@ -1,6 +1,13 @@
-/* =========================
+/* =====================================================
+   RASA NUSANTARA
+   RESPONSIVE LAYOUT
+   Desktop + Tablet + Mobile
+===================================================== */
+
+
+/* =====================================================
    GLOBAL
-========================= */
+===================================================== */
 
 * {
   margin: 0;
@@ -13,55 +20,102 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #f8f7f4;
-  color: #333;
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: #fff8ef;
+  color: #35231c;
+
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  width: 100%;
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 clamp(20px, 7vw, 100px);
+
+  background: #35231c;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 1000;
+
+  box-shadow:
+    0 4px 20px rgba(53, 35, 28, 0.18);
 }
 
 
 /* =========================
-   NAVBAR
+   LOGO
 ========================= */
 
-.navbar {
-  height: 70px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 0 8%;
-
-  background: white;
-  border-bottom: 1px solid #eee;
-
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
 .logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: #2d211b;
+  color: #fff8ef;
+
+  font-size: clamp(20px, 2vw, 26px);
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  /* Jarak logo ke menu */
+  margin-right: 60px;
 }
+
+
+/* =========================
+   NAV MENU
+========================= */
 
 .nav-menu {
   display: flex;
+
   align-items: center;
-  gap: 30px;
+
+  /* Jarak antar Home, Menu, Tentang, Kontak */
+  gap: 38px;
+
+  /* Dorong menu ke arah kanan */
+  margin-left: auto;
 }
 
 .nav-menu a {
+  color: #fff8ef;
+
   text-decoration: none;
-  color: #333;
+
+  font-size: 15px;
+
   font-weight: 500;
 
-  transition: 0.2s;
+  white-space: nowrap;
+
+  transition: 0.3s;
 }
 
 .nav-menu a:hover {
-  color: #b45f06;
+  color: #e9a23b;
 }
 
 
@@ -72,212 +126,390 @@ body {
 .logout-button {
   border: none;
 
-  padding: 9px 16px;
+  /* Jarak tombol dari Kontak */
+  margin-left: 15px;
 
-  background: #b45f06;
-  color: white;
+  padding: 10px 22px;
 
-  border-radius: 7px;
-
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.logout-button:hover {
-  background: #8f4b05;
-  transform: translateY(-1px);
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-  min-height: 550px;
-
-  display: flex;
-  align-items: center;
-
-  padding: 60px 8%;
+  border-radius: 25px;
 
   background:
     linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
-    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4")
-    center / cover;
+      135deg,
+      #c85a3f,
+      #e9a23b
+    );
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition: 0.3s;
 }
 
+.logout-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(200, 90, 63, 0.3);
+}
+
+
+/* =====================================================
+   HOME - HERO
+===================================================== */
+
+.hero {
+  width: 100%;
+
+  min-height: min(700px, calc(100vh - 76px));
+
+  display: flex;
+
+  align-items: center;
+
+  padding:
+    clamp(60px, 10vw, 120px)
+    clamp(20px, 8vw, 120px);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(40, 25, 18, 0.88),
+      rgba(40, 25, 18, 0.55),
+      rgba(40, 25, 18, 0.18)
+    ),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4")
+    center / cover no-repeat;
+}
+
+
+/* HERO CONTENT */
+
 .hero-content {
-  max-width: 600px;
+  width: 100%;
+
+  max-width: 650px;
+
   color: white;
 }
 
+
+/* SUBTITLE */
+
 .subtitle {
-  font-size: 14px;
-  font-weight: bold;
+  margin-bottom: 18px;
 
-  letter-spacing: 2px;
+  color: #f3c36b;
 
-  margin-bottom: 15px;
+  font-size: clamp(12px, 1.5vw, 15px);
+
+  font-weight: 700;
+
+  letter-spacing: clamp(2px, 0.5vw, 5px);
 }
+
+
+/* HERO TITLE */
 
 .hero h1 {
-  font-size: 60px;
+  margin-bottom: 22px;
 
-  margin-bottom: 20px;
+  color: white;
+
+  font-size: clamp(42px, 6vw, 72px);
+
+  line-height: 1.05;
+
+  text-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
-.hero p {
-  font-size: 18px;
+
+/* HERO DESCRIPTION */
+
+.hero p:not(.subtitle) {
+  max-width: 580px;
+
+  margin-bottom: 32px;
+
+  color: #fff4e8;
+
+  font-size: clamp(16px, 2vw, 19px);
+
   line-height: 1.7;
-
-  margin-bottom: 30px;
 }
+
+
+/* HERO BUTTON */
 
 .hero-button {
   display: inline-block;
 
-  padding: 14px 25px;
+  padding: 14px 30px;
 
-  background: #b45f06;
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #c85a3f,
+      #e9a23b
+    );
+
   color: white;
 
   text-decoration: none;
 
-  border-radius: 8px;
+  font-size: 16px;
 
-  transition: 0.2s;
+  font-weight: 600;
+
+  transition: 0.3s;
 }
 
 .hero-button:hover {
-  background: #8f4b05;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 25px rgba(200, 90, 63, 0.35);
 }
 
 
-/* =========================
+/* =====================================================
    ABOUT
-========================= */
+===================================================== */
 
 .about {
+  width: 100%;
+
+  padding:
+    clamp(65px, 9vw, 110px)
+    20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffaf4,
+      #f5e6d4
+    );
+
   text-align: center;
-
-  max-width: 800px;
-
-  margin: auto;
-
-  padding: 80px 20px;
 }
 
 .about h2 {
-  font-size: 35px;
-
   margin-bottom: 20px;
 
-  color: #2d211b;
+  color: #35231c;
+
+  font-size: clamp(30px, 4vw, 44px);
+}
+
+.about h2::after {
+  content: "";
+
+  display: block;
+
+  width: 65px;
+
+  height: 4px;
+
+  margin: 15px auto 30px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #c85a3f,
+      #e9a23b
+    );
 }
 
 .about p {
+  width: 100%;
+
+  max-width: 800px;
+
+  margin: 0 auto 18px;
+
+  color: #806f64;
+
+  font-size: clamp(15px, 1.5vw, 17px);
+
   line-height: 1.8;
-
-  color: #666;
-
-  margin-bottom: 15px;
 }
 
 
-/* =========================
+/* =====================================================
    CONTACT
-========================= */
+===================================================== */
 
 .contact {
-  padding: 80px 8%;
+  width: 100%;
 
-  background: white;
+  padding:
+    clamp(65px, 9vw, 110px)
+    20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5e6d4,
+      #fff8ef
+    );
 
   text-align: center;
 }
 
 .contact h2 {
-  font-size: 35px;
+  margin-bottom: 45px;
 
-  margin-bottom: 40px;
+  color: #35231c;
 
-  color: #2d211b;
+  font-size: clamp(30px, 4vw, 44px);
 }
 
-.contact-container {
-  max-width: 1000px;
+.contact h2::after {
+  content: "";
 
-  margin: auto;
+  display: block;
+
+  width: 65px;
+
+  height: 4px;
+
+  margin: 15px auto 0;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #c85a3f,
+      #e9a23b
+    );
+}
+
+
+/* CONTACT CONTAINER */
+
+.contact-container {
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
 
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
 
-  gap: 25px;
+  gap: 22px;
 }
 
+
+/* CONTACT CARD */
+
 .contact-item {
-  padding: 25px;
+  width: 100%;
 
-  background: #f8f7f4;
+  min-height: 210px;
 
-  border-radius: 12px;
+  padding: 28px 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: white;
+
+  border:
+    1px solid #ead8c6;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 20px rgba(53, 35, 28, 0.07);
+
+  transition: 0.3s;
+}
+
+.contact-item:hover {
+  transform: translateY(-7px);
+
+  box-shadow:
+    0 15px 30px rgba(200, 90, 63, 0.14);
 }
 
 .contact-item h3 {
   margin-bottom: 12px;
 
-  font-size: 18px;
+  color: #c85a3f;
 
-  color: #8b4513;
+  font-size: 18px;
 }
 
 .contact-item p {
-  color: #666;
+  max-width: 180px;
 
-  line-height: 1.6;
+  color: #806f64;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+  width: 100%;
+
+  padding: 30px 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #35231c,
+      #1e110c
+    );
+
+  color: #f7dfc9;
+
+  text-align: center;
 
   font-size: 14px;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-  padding: 25px;
-
-  background: #2d211b;
-
-  color: white;
-
-  text-align: center;
-
-  font-size: 13px;
-}
-
-
-/* =========================
-   MENU PAGE
-========================= */
+/* =====================================================
+   MENU
+===================================================== */
 
 .menu-page {
-  max-width: 1200px;
+  width: 100%;
 
-  margin: auto;
+  max-width: 1250px;
 
-  padding: 70px 20px;
+  margin: 0 auto;
+
+  padding: 90px 30px;
+
+  background: #fff8ef;
 }
 
 .menu-header {
@@ -287,98 +519,122 @@ body {
 }
 
 .menu-header h1 {
-  font-size: 42px;
+  color: #35231c;
 
-  margin: 10px 0 15px;
-
-  color: #2d211b;
+  font-size: clamp(32px, 4vw, 44px);
 }
 
 .menu-header p {
-  color: #777;
+  margin-top: 15px;
+
+  color: #806f64;
+}
+
+.menu-header h1::after {
+  content: "";
+
+  display: block;
+
+  width: 70px;
+
+  height: 4px;
+
+  margin: 15px auto 0;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #c85a3f,
+      #e9a23b
+    );
 }
 
 
-/* =========================
-   MENU GRID
-========================= */
+/* MENU GRID */
 
 .menu-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
 
-  gap: 30px;
+  gap: 28px;
 }
 
 
-/* =========================
-   MENU CARD
-========================= */
+/* MENU CARD */
 
 .menu-card {
-  background: white;
-
-  border-radius: 15px;
-
   overflow: hidden;
 
+  background: white;
+
+  border:
+    1px solid #ead8c6;
+
+  border-radius: 20px;
+
   box-shadow:
-    0 5px 20px rgba(0, 0, 0, 0.08);
+    0 8px 25px rgba(53, 35, 28, 0.08);
 
   transition: 0.3s;
 }
 
 .menu-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.12);
+    0 18px 40px rgba(200, 90, 63, 0.18);
 }
 
 .menu-card img {
+  display: block;
+
   width: 100%;
 
-  height: 220px;
+  height: 230px;
 
   object-fit: cover;
 }
 
 .menu-content {
-  padding: 20px;
+  padding: 22px;
 }
 
 .menu-content h3 {
-  font-size: 21px;
-
   margin-bottom: 10px;
 
-  color: #2d211b;
+  color: #35231c;
+
+  font-size: 21px;
 }
 
 .menu-content p {
-  color: #777;
+  color: #806f64;
 
-  line-height: 1.5;
-
-  min-height: 45px;
+  line-height: 1.6;
 }
 
 .menu-bottom {
   display: flex;
 
-  justify-content: space-between;
   align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
 
   margin-top: 20px;
 }
 
 .price {
-  font-weight: bold;
+  color: #c85a3f;
 
-  font-size: 18px;
+  font-size: 19px;
 
-  color: #8b4513;
+  font-weight: 700;
 }
 
 .menu-bottom button {
@@ -386,480 +642,272 @@ body {
 
   padding: 10px 18px;
 
-  border-radius: 7px;
+  border-radius: 25px;
 
-  background: #b45f06;
+  background:
+    linear-gradient(
+      135deg,
+      #c85a3f,
+      #e9a23b
+    );
 
   color: white;
 
   cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.menu-bottom button:hover {
-  background: #8f4b05;
 }
 
 
-/* =========================
-   LOGIN PAGE
-========================= */
-
-.login-page {
-  min-height: 100vh;
-
-  position: relative;
-
-  background-image:
-    url("/images/login-food.jpeg");
-
-  background-size: cover;
-
-  background-position: center;
-
-  display: flex;
-
-  flex-direction: column;
-}
-
-
-/* =========================
-   LOGIN OVERLAY
-========================= */
-
-.login-overlay {
-  position: absolute;
-
-  inset: 0;
-
-  background: rgba(0, 0, 0, 0.58);
-}
-
-
-/* =========================
-   LOGIN CONTENT
-========================= */
-
-.login-content {
-  position: relative;
-
-  z-index: 2;
-
-  flex: 1;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  padding: 50px 20px;
-}
-
-
-/* =========================
-   LOGIN CARD
-========================= */
-
-.login-card {
-  width: 100%;
-
-  max-width: 430px;
-
-  background: rgba(255, 255, 255, 0.97);
-
-  border-radius: 20px;
-
-  padding: 42px;
-
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.3);
-
-  text-align: center;
-}
-
-
-/* =========================
-   LOGIN LOGO
-========================= */
-
-.login-logo {
-  width: 65px;
-  height: 65px;
-
-  margin: 0 auto 18px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  background: #8b4513;
-
-  border-radius: 50%;
-
-  font-size: 30px;
-
-  box-shadow:
-    0 8px 20px rgba(139, 69, 19, 0.25);
-}
-
-
-/* =========================
-   LOGIN TITLE
-========================= */
-
-.login-card h1 {
-  margin: 0;
-
-  font-size: 30px;
-
-  color: #2d211b;
-
-  font-weight: 700;
-}
-
-.login-subtitle {
-  margin: 10px 0 30px;
-
-  color: #777;
-
-  font-size: 14px;
-}
-
-
-/* =========================
-   LOGIN INPUT
-========================= */
-
-.input-group {
-  text-align: left;
-
-  margin-bottom: 20px;
-}
-
-.input-group label {
-  display: block;
-
-  margin-bottom: 8px;
-
-  color: #33251f;
-
-  font-size: 14px;
-
-  font-weight: 600;
-}
-
-.input-group input[type="email"],
-.input-group input[type="password"] {
-  width: 100%;
-
-  box-sizing: border-box;
-
-  padding: 14px 16px;
-
-  border: 1px solid #ddd;
-
-  border-radius: 10px;
-
-  font-size: 14px;
-
-  outline: none;
-
-  transition: 0.2s;
-}
-
-.input-group input[type="email"]:focus,
-.input-group input[type="password"]:focus {
-  border-color: #8b4513;
-
-  box-shadow:
-    0 0 0 3px rgba(139, 69, 19, 0.1);
-}
-
-
-/* =========================
-   PASSWORD LABEL
-========================= */
-
-.password-label {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-}
-
-.password-label a {
-  color: #8b4513;
-
-  font-size: 12px;
-
-  text-decoration: none;
-}
-
-.password-label a:hover {
-  text-decoration: underline;
-}
-
-
-/* =========================
-   REMEMBER ME
-========================= */
-
-.remember {
-  text-align: left;
-
-  margin-bottom: 22px;
-}
-
-.remember label {
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  color: #666;
-
-  font-size: 13px;
-
-  cursor: pointer;
-}
-
-.remember input {
-  width: 15px;
-
-  height: 15px;
-
-  accent-color: #8b4513;
-}
-
-
-/* =========================
-   LOGIN BUTTON
-========================= */
-
-.login-button {
-  width: 100%;
-
-  padding: 14px;
-
-  border: none;
-
-  border-radius: 10px;
-
-  background: #8b4513;
-
-  color: white;
-
-  font-size: 15px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.login-button:hover {
-  background: #6f350f;
-
-  transform: translateY(-1px);
-
-  box-shadow:
-    0 8px 20px rgba(139, 69, 19, 0.25);
-}
-
-
-/* =========================
-   LOGIN DIVIDER
-========================= */
-
-.divider {
-  display: flex;
-
-  align-items: center;
-
-  gap: 12px;
-
-  margin: 28px 0;
-
-  color: #aaa;
-
-  font-size: 13px;
-}
-
-.divider::before,
-.divider::after {
-  content: "";
-
-  flex: 1;
-
-  height: 1px;
-
-  background: #e5e5e5;
-}
-
-
-/* =========================
-   REGISTER
-========================= */
-
-.register-text {
-  margin: 0;
-
-  color: #777;
-
-  font-size: 13px;
-}
-
-.register-text a {
-  color: #8b4513;
-
-  font-weight: 600;
-
-  text-decoration: none;
-}
-
-.register-text a:hover {
-  text-decoration: underline;
-}
-
-
-/* =========================
-   BACK HOME
-========================= */
-
-.back-home {
-  display: inline-block;
-
-  margin-top: 25px;
-
-  color: #555;
-
-  font-size: 13px;
-
-  text-decoration: none;
-}
-
-.back-home:hover {
-  color: #8b4513;
-}
-
-
-/* =========================
-   RESPONSIVE - TABLET
-========================= */
-
-@media (max-width: 800px) {
-
-  .menu-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .contact-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero h1 {
-    font-size: 45px;
+/* =====================================================
+   TABLET
+   601px - 900px
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    padding: 0 30px;
   }
 
   .nav-menu {
-    gap: 15px;
+    gap: 18px;
   }
 
-}
+  .nav-menu a {
+    font-size: 14px;
+  }
 
+  .hero {
+    min-height: 600px;
 
-/* =========================
-   RESPONSIVE - MOBILE
-========================= */
-
-@media (max-width: 550px) {
-
-  .menu-grid {
-    grid-template-columns: 1fr;
+    padding:
+      80px 50px;
   }
 
   .contact-container {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
+  .menu-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+   <= 600px
+===================================================== */
+
+@media (max-width: 600px) {
+
+  /* NAVBAR */
+
   .navbar {
-    padding: 0 20px;
+    min-height: 70px;
+
+    padding: 14px 18px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+
+    gap: 12px;
   }
 
   .logo {
-    font-size: 18px;
+    order: 1;
+
+    font-size: 20px;
+  }
+
+  .logout-button {
+    order: 2;
+
+    padding: 8px 16px;
+
+    font-size: 12px;
   }
 
   .nav-menu {
-    gap: 10px;
+    order: 3;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    padding: 8px 0 4px;
   }
 
   .nav-menu a {
     font-size: 13px;
   }
 
-  .logout-button {
-    padding: 7px 10px;
+
+  /* HERO */
+
+  .hero {
+    min-height: 580px;
+
+    padding:
+      70px 22px;
+
+    background-position: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .subtitle {
+    margin-bottom: 15px;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+  }
+
+  .hero h1 {
+    margin-bottom: 18px;
+
+    font-size: clamp(38px, 12vw, 52px);
+  }
+
+  .hero p:not(.subtitle) {
+    margin-bottom: 28px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .hero-button {
+    padding: 13px 25px;
+
+    font-size: 14px;
+  }
+
+
+  /* ABOUT */
+
+  .about {
+    padding:
+      65px 20px;
+  }
+
+  .about h2 {
+    font-size: 30px;
+  }
+
+  .about p {
+    font-size: 15px;
+
+    line-height: 1.8;
+  }
+
+
+  /* CONTACT */
+
+  .contact {
+    padding:
+      65px 18px;
+  }
+
+  .contact h2 {
+    margin-bottom: 35px;
+
+    font-size: 30px;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .contact-item {
+    min-height: 170px;
+
+    padding: 25px 18px;
+  }
+
+
+  /* FOOTER */
+
+  .footer {
+    padding: 25px 15px;
 
     font-size: 12px;
   }
 
-  .hero {
-    min-height: 500px;
 
-    padding: 50px 25px;
+  /* MENU */
+
+  .menu-page {
+    padding:
+      60px 18px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .menu-card img {
+    height: 210px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONE
+   <= 380px
+===================================================== */
+
+@media (max-width: 380px) {
+
+  .navbar {
+    padding:
+      12px 14px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .logout-button {
+    padding:
+      7px 12px;
+  }
+
+  .nav-menu {
+    gap: 12px;
+  }
+
+  .nav-menu a {
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 550px;
+
+    padding:
+      60px 18px;
   }
 
   .hero h1 {
-    font-size: 38px;
+    font-size: 36px;
   }
 
-  .hero p {
-    font-size: 16px;
+  .hero p:not(.subtitle) {
+    font-size: 14px;
   }
-
-  .about {
-    padding: 60px 25px;
-  }
-
-  .about h2,
-  .contact h2 {
-    font-size: 30px;
-  }
-
-}
-
-
-/* =========================
-   LOGIN RESPONSIVE
-========================= */
-
-@media (max-width: 600px) {
-
-  .login-content {
-    padding: 30px 15px;
-  }
-
-  .login-card {
-    padding: 32px 24px;
-
-    border-radius: 16px;
-  }
-
-  .login-card h1 {
-    font-size: 26px;
-  }
-
-  .login-error {
-  color: #d32f2f;
-  font-size: 13px;
-  text-align: left;
-  margin: -5px 0 15px;
-}
 }
