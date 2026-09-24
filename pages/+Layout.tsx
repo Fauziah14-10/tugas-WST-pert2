@@ -21,8 +21,8 @@ function Content({ children }: { children: React.ReactNode }) {
         id="page-content"
         style={{
           width: "100%",
-          padding: 20,
-          paddingBottom: 50,
+          padding: 0,
+          paddingBottom: 0,
           minHeight: "100vh",
         }}
       >

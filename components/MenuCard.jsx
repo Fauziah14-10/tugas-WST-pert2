@@ -3,11 +3,10 @@ export default function MenuCard({
   name,
   origin,
   description,
-  ingredients,
-  preparation,
+  slug,
 }) {
   return (
-    <div className="menu-card">
+    <a className="menu-card" href={`/food/${slug}`}>
       <img src={image} alt={name} />
 
       <div className="menu-content">
@@ -16,11 +15,7 @@ export default function MenuCard({
         <p className="menu-origin">Asal: {origin}</p>
 
         <p>{description}</p>
-
-        <p className="menu-detail"><strong>Bahan utama:</strong> {ingredients}</p>
-
-        <p className="menu-detail"><strong>Cara memasak:</strong> {preparation}</p>
       </div>
-    </div>
+    </a>
   );
 }
