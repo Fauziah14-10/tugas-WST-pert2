@@ -8,6 +8,7 @@ const config: Config = {
   // https://vike.dev/head-tags
   title: "My Vike App",
   description: "Demo showcasing Vike",
+  prerender: true,
 
   extends: [vikeReact],
 };
