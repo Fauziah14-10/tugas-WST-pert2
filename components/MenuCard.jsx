@@ -1,23 +1,11 @@
-const formatMoney = (value) =>
-  new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    maximumFractionDigits: 0,
-  }).format(value);
-
 export default function MenuCard({
   image,
   name,
+  origin,
   description,
-  price,
-  quantity,
-  onIncrease,
-  onDecrease,
-  onOrder,
+  ingredients,
+  preparation,
 }) {
-  const numericPrice = Number(String(price).replace(/[^\d]/g, ""));
-  const totalPrice = numericPrice * quantity;
-
   return (
     <div className="menu-card">
       <img src={image} alt={name} />
@@ -25,25 +13,13 @@ export default function MenuCard({
       <div className="menu-content">
         <h3>{name}</h3>
 
+        <p className="menu-origin">Asal: {origin}</p>
+
         <p>{description}</p>
 
-        <div className="menu-bottom">
-          <span className="price">{price}</span>
+        <p className="menu-detail"><strong>Bahan utama:</strong> {ingredients}</p>
 
-          <div className="quantity-controls">
-            <button type="button" onClick={onDecrease} aria-label={`Kurangi jumlah ${name}`}>
-              -
-            </button>
-            <span>{quantity}</span>
-            <button type="button" onClick={onIncrease} aria-label={`Tambah jumlah ${name}`}>
-              +
-            </button>
-          </div>
-
-          <button type="button" className="order-button" onClick={onOrder}>
-            Pesan
-          </button>
-        </div>
+        <p className="menu-detail"><strong>Cara memasak:</strong> {preparation}</p>
       </div>
     </div>
   );
