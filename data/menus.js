@@ -321,24 +321,7 @@ export const menus = [
       "Masak dengan api sedang sambil diaduk perlahan sampai semua sayuran matang dan kuah terasa gurih."
     ],
     image: "https://www.dapurkobe.co.id/wp-content/uploads/sayur-lodeh.jpg",
-  },
-    {
-    slug: "lotek",
-    name: "Lotek",
-    category: "Sayuran",
-    origin: "Jawa Barat",
-    description: "Hidangan sayuran rebus dengan saus kacang yang gurih, manis, dan sedikit pedas.",
-    ingredients: "Kangkung, kacang panjang, tauge, kol, wortel, tahu, kacang tanah, cabai, gula merah, kencur, dan air asam jawa.",
-    preparation: "Sayuran direbus sebentar, kemudian dicampur dengan saus kacang yang diulek bersama bumbu hingga merata.",
-    story: "Lotek merupakan kuliner khas Jawa Barat yang banyak ditemukan di wilayah Sunda. Hidangan ini memiliki kemiripan dengan gado-gado, tetapi bumbu kacangnya biasanya menggunakan kencur yang memberikan aroma khas.",
-    steps: [
-      "Cuci dan potong kangkung, kacang panjang, tauge, kol, serta wortel sesuai ukuran.",
-      "Rebus sayuran secara bergantian hingga matang tetapi tetap renyah, kemudian tiriskan.",
-      "Ulek kacang tanah goreng bersama cabai, gula merah, kencur, garam, dan air asam jawa sampai menjadi saus kacang.",
-      "Masukkan sayuran ke dalam bumbu, aduk hingga tercampur rata, lalu sajikan dengan lontong, tahu, atau kerupuk."
-    ],
-    image: "https://static.vecteezy.com/system/resources/previews/048/458/959/large_2x/lotek-is-a-traditional-salad-from-indonesia-made-from-vegetable-chayote-kale-young-jackfruit-tempeh-tofu-long-beans-and-bean-sprouts-with-peanut-sauce-and-cracker-photo.JPG",
-  },
+  }, 
 ];
 
 
