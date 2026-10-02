@@ -1,3 +1,4 @@
+import { ArrowLeft } from "lucide-react";
 import { useData } from "vike-react/useData";
 import Navbar from "../../../components/Navbar";
 
@@ -9,8 +10,8 @@ export default function Page() {
       <Navbar />
 
       <main className="food-detail-page">
-        <a className="food-back-link" href="/#menu">
-          Kembali ke koleksi makanan
+        <a className="food-back-link" href="/#menu" aria-label="Kembali ke koleksi makanan">
+          <ArrowLeft size={18} />
         </a>
 
         <article className="food-detail-card">

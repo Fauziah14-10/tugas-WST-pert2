@@ -887,15 +887,24 @@ body {
 }
 
 .food-back-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   margin-bottom: 24px;
+  border: 1px solid #ead8c6;
+  border-radius: 50%;
+  background: #fff8ef;
   color: #c85a3f;
-  font-weight: 700;
   text-decoration: none;
+  transition: 0.3s ease;
 }
 
 .food-back-link:hover {
+  background: #fff1df;
   color: #9f402c;
+  transform: translateX(-2px);
 }
 
 .food-detail-card {
