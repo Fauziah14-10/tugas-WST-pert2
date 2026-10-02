@@ -1,10 +1,19 @@
 import { useState } from "react";
+import confetti from "canvas-confetti";
 import Navbar from "../../components/Navbar";
 import MenuCard from "../../components/MenuCard";
 import { menus } from "../../data/menus.js";
 
 export default function Page() {
   const [activeCategory, setActiveCategory] = useState("Semua");
+
+  const handleCelebrate = () => {
+    confetti({
+      particleCount: 140,
+      spread: 90,
+      origin: { y: 0.6 },
+    });
+  };
 
   const categories = ["Semua", ...new Set(menus.map((menu) => menu.category))];
   const filteredMenus = menus.filter((menu) => {
@@ -26,9 +35,14 @@ export default function Page() {
             yang membuatnya istimewa.
           </p>
 
-          <a href="#menu" className="hero-button">
-            Jelajahi Makanan
-          </a>
+          <div className="hero-actions">
+            <a href="#menu" className="hero-button">
+              Jelajahi Makanan
+            </a>
+            <button type="button" className="celebrate-button" onClick={handleCelebrate}>
+              Celebrate
+            </button>
+          </div>
         </div>
       </section>
 
