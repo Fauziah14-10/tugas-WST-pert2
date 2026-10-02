@@ -1,5 +1,6 @@
 import { useState } from "react";
 import confetti from "canvas-confetti";
+import { ArrowRight, Sparkles } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import MenuCard from "../../components/MenuCard";
 import { menus } from "../../data/menus.js";
@@ -37,10 +38,12 @@ export default function Page() {
 
           <div className="hero-actions">
             <a href="#menu" className="hero-button">
-              Jelajahi Makanan
+              <span>Jelajahi Makanan</span>
+              <ArrowRight size={18} />
             </a>
             <button type="button" className="celebrate-button" onClick={handleCelebrate}>
-              Celebrate
+              <Sparkles size={18} />
+              <span>Celebrate</span>
             </button>
           </div>
         </div>

@@ -1,3 +1,5 @@
+import { MapPin } from "lucide-react";
+
 export default function MenuCard({
   image,
   name,
@@ -12,7 +14,10 @@ export default function MenuCard({
       <div className="menu-content">
         <h3>{name}</h3>
 
-        <p className="menu-origin">Asal: {origin}</p>
+        <p className="menu-origin">
+          <MapPin size={14} />
+          <span>Asal: {origin}</span>
+        </p>
 
         <p>{description}</p>
       </div>
