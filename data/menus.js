@@ -14,7 +14,7 @@ export const menus = [
       "Orak-arik telur, tambahkan nasi dan kecap manis, kemudian aduk dengan api besar sampai bumbu merata.",
       "Sajikan hangat dengan taburan bawang goreng, acar, atau kerupuk sesuai selera.",
     ],
-    image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b",
+    image: "https://asset.kompas.com/crops/VcgvggZKE2VHqIAUp1pyHFXXYCs=/202x66:1000x599/1200x800/data/photo/2023/05/07/6456a450d2edd.jpg",
   },
   {
     slug: "ayam-bakar",
@@ -48,7 +48,7 @@ export const menus = [
       "Masukkan daging setelah kuah mendidih, kemudian masak dengan api kecil sambil sesekali diaduk.",
       "Lanjutkan memasak sampai santan mengering, minyak rempah keluar, dan bumbu melekat pada daging.",
     ],
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Rendang_daging_sapi_asli_Padang.JPG?width=800",
+    image: "https://img.freepik.com/premium-photo/rendang-daging-beef-rendang-chicken-rendang-traditional-dish-usually-served-eid-festival-normal-day_781325-4250.jpg?w=1380",
   },
   {
     slug: "gudeg",
@@ -65,7 +65,7 @@ export const menus = [
       "Masak selama beberapa jam sampai nangka lunak, warna berubah cokelat, dan kuah meresap.",
       "Sajikan dengan nasi, telur pindang, ayam, dan sambal krecek sebagai pelengkap.",
     ],
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Gudeg_Jogja.jpg?width=800",
+    image: "https://i.pinimg.com/736x/32/15/19/321519dd077f2670742a1a9a3c8c50fc.jpg",
   },
   {
     slug: "sate-ayam",
@@ -82,7 +82,7 @@ export const menus = [
       "Bakar sate di atas bara atau grill sambil dibolak-balik dan diolesi kecap berbumbu.",
       "Haluskan kacang goreng bersama cabai dan gula merah, encerkan dengan air, lalu sajikan bersama sate.",
     ],
-    image: "https://images.unsplash.com/photo-1529563021893-cc83c992d75d",
+    image: "https://storage.1001resepnusantara.com/images/recipe/KWbE5TTQ5IeIxUK5eSGaiFBJtzLLzc4AYDwufhmo.webp",
   },
   {
     slug: "pempek",
@@ -116,7 +116,7 @@ export const menus = [
       "Tumis bumbu sampai matang, masukkan ke dalam kaldu, lalu kembalikan potongan daging.",
       "Masak sampai daging empuk dan kuah berwarna hitam pekat, kemudian sajikan dengan pelengkap.",
     ],
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Nasi_Rawon.jpg?width=800",
+    image: "https://alchetron.com/cdn/rawon-89c6971f-75d2-4451-9ba1-cff93a44ef6-resize-750.jpeg",
   },
   {
     slug: "gado-gado",
@@ -133,7 +133,7 @@ export const menus = [
       "Ulek kacang tanah goreng bersama cabai, bawang putih, gula merah, air asam, dan sedikit garam.",
       "Susun sayuran dan pelengkap, tuangkan saus kacang, lalu tambahkan kerupuk atau bawang goreng.",
     ],
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Gado_gado.jpg?width=800",
+    image: "https://img.freepik.com/premium-photo/gado-gado-indonesian-mix-vegetables-salad-from-boiled-steam-vegetable-served-with-peanut-sauce_431906-4813.jpg",
   },
   {
     slug: "papeda",
@@ -322,6 +322,134 @@ export const menus = [
     ],
     image: "https://www.dapurkobe.co.id/wp-content/uploads/sayur-lodeh.jpg",
   }, 
+  {
+  slug: "dadar-gulung",
+  name: "Dadar Gulung",
+  category: "Kudapan",
+  origin: "Jawa",
+  description: "Kue tradisional berbentuk gulungan dengan kulit berwarna hijau dan isian kelapa parut yang dimasak bersama gula merah.",
+  ingredients: "Tepung terigu, tepung tapioka, santan, daun pandan, kelapa parut, gula merah, gula pasir, dan sedikit garam.",
+  preparation: "Adonan kulit dibuat dengan mencampurkan tepung, santan, dan air pandan, kemudian dimasak tipis seperti kulit crepe. Isian kelapa dimasak bersama gula merah hingga meresap.",
+  story: "Dadar gulung merupakan kue tradisional yang populer di Indonesia, terutama di Pulau Jawa. Kue ini sering disajikan sebagai kudapan dengan rasa manis dari isian kelapa dan gula merah.",
+  steps: [
+    "Campurkan tepung terigu, tepung tapioka, santan, dan air pandan hingga menjadi adonan yang halus.",
+    "Panaskan teflon, lalu tuangkan sedikit adonan dan ratakan hingga membentuk kulit tipis.",
+    "Masak kelapa parut bersama gula merah, gula pasir, dan sedikit garam hingga gula larut dan isian menjadi harum.",
+    "Letakkan isian kelapa di atas kulit dadar, kemudian lipat bagian sisi dan gulung hingga berbentuk rapi."
+  ],
+  image: "https://cdn-1.timesmedia.co.id/images/2024/02/13/dadar-gulung.jpg",
+},
+{
+  slug: "serabi",
+  name: "Serabi",
+  category: "Kudapan",
+  origin: "Jawa Barat",
+  description: "Kue tradisional berbentuk bulat dengan tekstur lembut dan rasa gurih atau manis, biasanya disajikan dengan kuah kinca atau berbagai topping.",
+  ingredients: "Tepung beras, tepung terigu, santan, gula pasir, ragi, garam, dan daun pandan.",
+  preparation: "Adonan tepung beras dan santan difermentasi, kemudian dimasak menggunakan wajan kecil hingga matang dan bagian permukaannya bertekstur.",
+  story: "Serabi merupakan salah satu kue tradisional Indonesia yang populer di Pulau Jawa, terutama Jawa Barat. Serabi biasanya dibuat secara sederhana menggunakan tepung beras dan santan, kemudian disajikan sebagai kudapan dengan rasa gurih atau manis.",
+  steps: [
+    "Campurkan tepung beras, tepung terigu, gula, ragi, dan garam dalam satu wadah.",
+    "Tuangkan santan sedikit demi sedikit sambil diaduk hingga adonan menjadi halus.",
+    "Diamkan adonan beberapa saat agar ragi bekerja dan menghasilkan tekstur yang lembut.",
+    "Panaskan wajan kecil, tuangkan adonan secukupnya, lalu masak hingga matang dan bagian permukaannya berlubang.",
+    "Angkat serabi dan sajikan dengan kuah kinca atau topping sesuai selera."
+  ],
+  image: "https://api.omela.com/storage/content-editor-images/xDWNnyVjuaxkmifxjjphm1bs1cl56AXtr03umo1R.jpg",
+},
+{
+  slug: "tumis-kangkung",
+  name: "Tumis Kangkung",
+  category: "Sayuran",
+  origin: "Indonesia",
+  description: "Hidangan sederhana berbahan dasar kangkung yang ditumis dengan bawang putih, bawang merah, cabai, dan bumbu lainnya hingga harum dan matang.",
+  ingredients: "Kangkung, bawang merah, bawang putih, cabai, tomat, saus tiram, garam, gula, dan minyak goreng.",
+  preparation: "Kangkung dibersihkan dan dipotong, kemudian ditumis bersama bumbu hingga harum. Setelah itu kangkung dimasukkan dan dimasak sebentar hingga layu tetapi tetap segar.",
+  story: "Tumis kangkung merupakan salah satu hidangan sayuran yang populer di Indonesia. Hidangan ini mudah dibuat dan sering disajikan sebagai pelengkap nasi bersama lauk lainnya.",
+  steps: [
+    "Cuci kangkung hingga bersih, kemudian potong bagian batang dan daunnya sesuai ukuran.",
+    "Iris bawang merah, bawang putih, cabai, dan tomat.",
+    "Panaskan minyak, lalu tumis bawang merah, bawang putih, cabai, dan tomat hingga harum.",
+    "Masukkan kangkung, saus tiram, garam, dan gula, kemudian aduk hingga semua bumbu tercampur.",
+    "Masak sebentar hingga kangkung layu tetapi tetap berwarna hijau, lalu angkat dan sajikan."
+  ],
+  image: "https://resepkoki.id/wp-content/uploads/2019/10/Tumis-Kangkung.jpg"
+},
+{
+  slug: "nasi-uduk",
+  name: "Nasi Uduk",
+  category: "Makanan Berat",
+  origin: "Jakarta",
+  description: "Nasi yang dimasak dengan santan dan rempah sehingga memiliki rasa gurih dan aroma yang khas.",
+  ingredients: "Beras, santan, serai, daun salam, daun pandan, garam, dan air.",
+  preparation: "Beras dimasak bersama santan dan berbagai rempah hingga matang, menghasilkan nasi yang pulen, gurih, dan harum.",
+  story: "Nasi uduk merupakan salah satu makanan khas Betawi yang populer di Jakarta. Hidangan ini biasanya disajikan dengan berbagai lauk pendamping seperti ayam goreng, telur, tahu, tempe, bihun, sambal, dan bawang goreng.",
+  steps: [
+    "Cuci beras hingga bersih, kemudian tiriskan.",
+    "Masak beras bersama santan, serai, daun salam, daun pandan, dan garam.",
+    "Aduk sesekali hingga santan meresap dan nasi hampir matang.",
+    "Lanjutkan memasak hingga nasi benar-benar matang dan pulen.",
+    "Sajikan nasi uduk bersama lauk pendamping dan sambal."
+  ],
+  image: "https://img.freepik.com/premium-photo/nasi-uduk-betawi-coconut-flavored-steamed-rice-dish-from-betawi-jakarta-served-with-several-dishes_431906-4501.jpg?w=2000",
+},
+{
+  slug: "batagor",
+  name: "Batagor",
+  category: "Kudapan",
+  origin: "Jawa Barat",
+  description: "Kudapan khas Jawa Barat berupa adonan ikan yang dibungkus kulit tahu dan pangsit, kemudian digoreng hingga renyah dan disajikan dengan saus kacang.",
+  ingredients: "Ikan tenggiri, tepung tapioka, tahu, kulit pangsit, bawang putih, daun bawang, garam, merica, dan minyak goreng.",
+  preparation: "Adonan ikan dicampur dengan tepung dan bumbu, kemudian dimasukkan ke dalam tahu dan kulit pangsit. Setelah itu digoreng hingga matang dan renyah.",
+  story: "Batagor merupakan salah satu kudapan khas Bandung, Jawa Barat. Nama batagor berasal dari singkatan 'bakso tahu goreng' dan biasanya disajikan dengan saus kacang, kecap manis, serta perasan jeruk limau.",
+  steps: [
+    "Haluskan ikan tenggiri, kemudian campurkan dengan tepung tapioka, bawang putih, daun bawang, garam, dan merica.",
+    "Masukkan adonan ikan ke dalam tahu dan kulit pangsit.",
+    "Panaskan minyak, kemudian goreng tahu dan pangsit hingga matang serta berwarna kecokelatan.",
+    "Potong batagor sesuai ukuran yang diinginkan.",
+    "Sajikan dengan saus kacang, kecap manis, dan perasan jeruk limau."
+  ],
+  image: "https://www.backindo.com/wp-content/uploads/2024/08/batagor.jpg",
+},
+{
+  slug: "sate-padang",
+  name: "Sate Padang",
+  category: "Mie & Sate",
+  origin: "Sumatera Barat",
+  description: "Sate khas Sumatera Barat yang menggunakan potongan daging sapi, lidah, atau jeroan dan disajikan dengan kuah kental berwarna kuning yang kaya rempah.",
+  ingredients: "Daging sapi, lidah atau jeroan, tepung beras, bawang merah, bawang putih, cabai, kunyit, jahe, lengkuas, serai, daun jeruk, ketumbar, jintan, dan garam.",
+  preparation: "Daging direbus bersama berbagai rempah hingga empuk, kemudian dipotong dan ditusuk. Daging selanjutnya dibakar dan disajikan dengan kuah kental berbumbu rempah.",
+  story: "Sate Padang merupakan hidangan khas Sumatera Barat yang terkenal dengan kuahnya yang kental dan kaya rempah. Sate ini memiliki beberapa variasi, seperti Sate Padang Panjang dengan kuah berwarna kuning dan Sate Pariaman dengan kuah yang cenderung merah.",
+  steps: [
+    "Rebus daging sapi, lidah, atau jeroan bersama bumbu dan rempah hingga empuk dan bumbu meresap.",
+    "Angkat daging, kemudian potong menjadi ukuran kecil dan tusukkan pada tusuk sate.",
+    "Bakar sate di atas bara api hingga matang dan memiliki aroma khas bakaran.",
+    "Gunakan sisa kaldu dan bumbu rebusan untuk membuat kuah sate.",
+    "Tambahkan tepung beras secara perlahan sambil diaduk hingga kuah mengental.",
+    "Sajikan sate dengan kuah kental, kemudian tambahkan bawang goreng dan lontong sesuai selera."
+  ],
+  image: "https://sumeks.disway.id/upload/28de07a250e68931bceb246725c53a80.jpg",
+},
+{
+  slug: "mie-ongklok",
+  name: "Mie Ongklok",
+  category: "Mie & Sate",
+  origin: "Jawa Tengah",
+  description: "Mie khas Wonosobo dengan kuah kental berbumbu yang disajikan bersama kol, daun kucai, dan biasanya dilengkapi potongan daging atau sate sapi.",
+  ingredients: "Mie kuning, kol, daun kucai, tepung tapioka, kaldu ayam atau sapi, bawang putih, merica, garam, kecap manis, dan daun bawang.",
+  preparation: "Mie, kol, dan kucai direbus menggunakan saringan bambu, kemudian disiram dengan kuah kental yang telah dibumbui hingga menghasilkan rasa gurih dan manis.",
+  story: "Mie Ongklok merupakan makanan khas Wonosobo, Jawa Tengah. Nama 'ongklok' berasal dari alat berupa keranjang kecil yang digunakan untuk merebus mie dan sayuran dengan cara dikocok atau diangkat berulang kali.",
+  steps: [
+    "Rebus mie kuning, kol, dan daun kucai menggunakan saringan atau keranjang hingga matang.",
+    "Haluskan bawang putih dan merica, kemudian masak bersama kaldu hingga harum.",
+    "Tambahkan kecap manis, garam, dan bumbu lainnya sesuai selera.",
+    "Larutkan tepung tapioka dengan sedikit air, lalu tuangkan ke dalam kuah sambil diaduk hingga mengental.",
+    "Masukkan mie, kol, dan kucai ke dalam mangkuk.",
+    "Tuangkan kuah kental di atas mie dan sajikan bersama sate sapi atau lauk pendamping."
+  ],
+  image: "https://tse4.mm.bing.net/th/id/OIP.TxQeajqXEtUJI0YTS4JS0wHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3https://www.dapurkobe.co.id/wp-content/uploads/mie-ongklok.jpg",
+},
+
 ];
 
 
