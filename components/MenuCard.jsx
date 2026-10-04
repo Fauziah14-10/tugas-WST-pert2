@@ -1,12 +1,6 @@
 import { MapPin } from "lucide-react";
 
-export default function MenuCard({
-  image,
-  name,
-  origin,
-  description,
-  slug,
-}) {
+export default function MenuCard({ image, name, origin, description, slug }) {
   return (
     <a className="menu-card" href={`/food/${slug}`}>
       <img src={image} alt={name} />
