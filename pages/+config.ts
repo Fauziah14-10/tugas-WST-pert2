@@ -6,7 +6,7 @@ import vikeReact from "vike-react/config";
 
 const config: Config = {
   // https://vike.dev/head-tags
-  title: "My Vike App",
+  title: "Rasa Nusantara",
   description: "Demo showcasing Vike",
   prerender: true,
 
