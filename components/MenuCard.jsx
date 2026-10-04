@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { MapPin } from "lucide-react";
 
-export default function MenuCard({ image, name, origin, description, slug, revealIndex }) {
+export default function MenuCard({ image, name, origin, description, slug, revealIndex, originLabel = "Asal" }) {
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function MenuCard({ image, name, origin, description, slug, revea
 
         <p className="menu-origin">
           <MapPin size={14} />
-          <span>Asal: {origin}</span>
+          <span>{originLabel}: {origin}</span>
         </p>
 
         <p>{description}</p>

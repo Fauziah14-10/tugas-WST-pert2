@@ -1,16 +1,19 @@
 import "./Layout.css";
+import { LanguageProvider } from "../components/LanguageContext";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "100%",
-        minHeight: "100vh",
-      }}
-    >
-      <Content>{children}</Content>
-    </div>
+    <LanguageProvider>
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          minHeight: "100vh",
+        }}
+      >
+        <Content>{children}</Content>
+      </div>
+    </LanguageProvider>
   );
 }
 
