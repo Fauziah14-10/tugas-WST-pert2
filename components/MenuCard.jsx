@@ -1,8 +1,36 @@
+import { useEffect, useRef } from "react";
 import { MapPin } from "lucide-react";
 
-export default function MenuCard({ image, name, origin, description, slug }) {
+export default function MenuCard({ image, name, origin, description, slug, revealIndex }) {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    if (!("IntersectionObserver" in window)) {
+      card.classList.add("is-visible");
+      return;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        card.classList.add("is-visible");
+        observer.unobserve(card);
+      }
+    }, { threshold: 0.12 });
+
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <a className="menu-card" href={`/food/${slug}`}>
+    <a
+      ref={cardRef}
+      className="menu-card"
+      href={`/food/${slug}`}
+      style={{ "--reveal-delay": `${Math.min(revealIndex, 5) * 65}ms` }}
+    >
       <img src={image} alt={name} />
 
       <div className="menu-content">

@@ -279,8 +279,7 @@ body {
 
 /* HERO BUTTON */
 
-.hero-button,
-.celebrate-button {
+.hero-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -307,15 +306,7 @@ body {
   text-decoration: none;
 }
 
-.celebrate-button {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-.hero-button:hover,
-.celebrate-button:hover {
+.hero-button:hover {
   transform: translateY(-3px);
 }
 
@@ -323,13 +314,6 @@ body {
   box-shadow:
     0 12px 25px rgba(200, 90, 63, 0.35);
 }
-
-.celebrate-button:hover {
-  background: rgba(255, 255, 255, 0.18);
-  box-shadow:
-    0 12px 25px rgba(0, 0, 0, 0.2);
-}
-
 
 /* =====================================================
    ABOUT
@@ -811,14 +795,34 @@ body {
   box-shadow:
     0 8px 25px rgba(53, 35, 28, 0.08);
 
-  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 450ms ease var(--reveal-delay, 0ms),
+    transform 450ms ease var(--reveal-delay, 0ms),
+    box-shadow 300ms ease;
 }
 
-.menu-card:hover {
+.menu-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-card.is-visible:hover {
   transform: translateY(-8px);
 
   box-shadow:
     0 18px 40px rgba(200, 90, 63, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-card,
+  .menu-card.is-visible,
+  .menu-card.is-visible:hover {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .menu-card img {

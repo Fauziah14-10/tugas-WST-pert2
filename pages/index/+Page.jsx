@@ -1,6 +1,6 @@
 import { useState } from "react";
 import confetti from "canvas-confetti";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import MenuCard from "../../components/MenuCard";
 import { menus } from "../../data/menus.js";
@@ -8,11 +8,14 @@ import { menus } from "../../data/menus.js";
 export default function Page() {
   const [activeCategory, setActiveCategory] = useState("Semua");
 
-  const handleCelebrate = () => {
+  const handleExplore = () => {
     confetti({
-      particleCount: 140,
-      spread: 90,
-      origin: { y: 0.6 },
+      particleCount: 75,
+      spread: 65,
+      startVelocity: 32,
+      origin: { y: 0.72 },
+      colors: ["#f3c36b", "#fff4e8", "#c85a3f"],
+      disableForReducedMotion: true,
     });
   };
 
@@ -37,14 +40,10 @@ export default function Page() {
           </p>
 
           <div className="hero-actions">
-            <a href="#menu" className="hero-button">
+            <a href="#menu" className="hero-button" onClick={handleExplore}>
               <span>Jelajahi Makanan</span>
               <ArrowRight size={18} />
             </a>
-            <button type="button" className="celebrate-button" onClick={handleCelebrate}>
-              <Sparkles size={18} />
-              <span>Celebrate</span>
-            </button>
           </div>
         </div>
       </section>
@@ -77,7 +76,7 @@ export default function Page() {
               <strong>Menu tidak ditemukan</strong>
               <span>Coba gunakan kata kunci atau kategori yang berbeda.</span>
             </div>
-          ) : filteredMenus.map((menu) => (
+          ) : filteredMenus.map((menu, index) => (
             <MenuCard
               key={menu.name}
               image={menu.image}
@@ -85,6 +84,7 @@ export default function Page() {
               origin={menu.origin}
               description={menu.description}
               slug={menu.slug}
+              revealIndex={index}
             />
           ))}
         </div>
