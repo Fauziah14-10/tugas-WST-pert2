@@ -1700,3 +1700,190 @@ body {
     font-size: 14px;
   }
 }
+/* =====================================================
+   FAVORITE BUTTON
+===================================================== */
+
+.menu-card {
+  position: relative;
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #806f64;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.08);
+}
+
+.favorite-btn.active {
+  color: #c85a3f;
+}
+/* =====================================================
+   FAVORITE PAGE
+===================================================== */
+
+.favorite-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 30px 90px;
+}
+
+.favorite-header {
+  margin-bottom: 40px;
+}
+
+.favorite-header .subtitle {
+  margin-bottom: 12px;
+}
+
+.favorite-header h1 {
+  margin: 0 0 10px;
+  color: #35231c;
+  font-size: clamp(36px, 5vw, 52px);
+  line-height: 1.1;
+}
+
+.favorite-header p:not(.subtitle) {
+  margin: 0;
+  color: #806f64;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Grid khusus halaman favorit */
+.favorite-page .menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* Kondisi belum ada favorit */
+.favorite-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 40px 30px;
+  text-align: center;
+  background: white;
+  border: 1px solid #ead8c6;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(53, 35, 28, 0.08);
+}
+
+.favorite-empty svg {
+  margin-bottom: 16px;
+  color: #c85a3f;
+}
+
+.favorite-empty h2 {
+  margin-bottom: 10px;
+  color: #35231c;
+}
+
+.favorite-empty p {
+  margin-bottom: 20px;
+  color: #806f64;
+}
+
+.favorite-empty a {
+  display: inline-flex;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: #c85a3f;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.favorite-empty a:hover {
+  background: #9f402c;
+}
+
+
+/* =====================================================
+   FAVORITE RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+  .favorite-page .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .favorite-page {
+    padding: 45px 18px 65px;
+  }
+
+  .favorite-page .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .favorite-header h1 {
+    font-size: 36px;
+  }
+}
+.favorite-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff8ef;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.favorite-nav:hover {
+  color: #f4b183;
+}
+/* =====================================================
+   FAVORITE NOTIFICATION
+===================================================== */
+
+.favorite-notification {
+  position: fixed;
+  top: 80px;
+  right: 25px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: #35231c;
+  color: #fff8ef;
+  box-shadow: 0 10px 30px rgba(53, 35, 28, 0.2);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.favorite-notification svg {
+  color: #f4b183;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .favorite-notification {
+    top: 70px;
+    right: 18px;
+    left: 18px;
+    justify-content: center;
+  }
+}

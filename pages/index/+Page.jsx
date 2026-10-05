@@ -1,12 +1,60 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import confetti from "canvas-confetti";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Heart } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import MenuCard from "../../components/MenuCard";
 import { menus } from "../../data/menus.js";
 
 export default function Page() {
   const [activeCategory, setActiveCategory] = useState("Semua");
+
+  const [favorites, setFavorites] = useState([]);
+  const [favoritesLoaded, setFavoritesLoaded] = useState(false);
+  const [favoriteNotification, setFavoriteNotification] = useState("");
+
+  useEffect(() => {
+    try {
+      const savedFavorites = JSON.parse(
+        localStorage.getItem("favorites") || "[]"
+      );
+
+      setFavorites(savedFavorites);
+    } catch {
+      setFavorites([]);
+    }
+
+    setFavoritesLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (favoritesLoaded) {
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  }, [favorites, favoritesLoaded]);
+
+  const toggleFavorite = (slug) => {
+    setFavorites((currentFavorites) => {
+      const isFavorite = currentFavorites.includes(slug);
+
+      const updatedFavorites = isFavorite
+        ? currentFavorites.filter((item) => item !== slug)
+        : [...currentFavorites, slug];
+
+      const menu = menus.find((item) => item.slug === slug);
+
+      setFavoriteNotification(
+        isFavorite
+          ? `${menu?.name || "Makanan"} dihapus dari favorit`
+          : `${menu?.name || "Makanan"} ditambahkan ke favorit`
+      );
+
+      setTimeout(() => {
+        setFavoriteNotification("");
+      }, 2500);
+
+      return updatedFavorites;
+    });
+  };
 
   const handleCelebrate = () => {
     confetti({
@@ -17,6 +65,7 @@ export default function Page() {
   };
 
   const categories = ["Semua", ...new Set(menus.map((menu) => menu.category))];
+
   const filteredMenus = menus.filter((menu) => {
     return activeCategory === "Semua" || menu.category === activeCategory;
   });
@@ -24,6 +73,13 @@ export default function Page() {
   return (
     <>
       <Navbar />
+
+      {favoriteNotification && (
+        <div className="favorite-notification">
+          <Heart size={18} />
+          <span>{favoriteNotification}</span>
+        </div>
+      )}
 
       <section className="hero">
         <div className="hero-content">
@@ -41,7 +97,12 @@ export default function Page() {
               <span>Jelajahi Makanan</span>
               <ArrowRight size={18} />
             </a>
-            <button type="button" className="celebrate-button" onClick={handleCelebrate}>
+
+            <button
+              type="button"
+              className="celebrate-button"
+              onClick={handleCelebrate}
+            >
               <Sparkles size={18} />
               <span>Celebrate</span>
             </button>
@@ -57,7 +118,10 @@ export default function Page() {
         </div>
 
         <div className="menu-tools">
-          <div className="category-filters" aria-label="Filter kategori menu">
+          <div
+            className="category-filters"
+            aria-label="Filter kategori menu"
+          >
             {categories.map((category) => (
               <button
                 key={category}
@@ -75,18 +139,24 @@ export default function Page() {
           {filteredMenus.length === 0 ? (
             <div className="menu-empty-state">
               <strong>Menu tidak ditemukan</strong>
-              <span>Coba gunakan kata kunci atau kategori yang berbeda.</span>
+              <span>
+                Coba gunakan kata kunci atau kategori yang berbeda.
+              </span>
             </div>
-          ) : filteredMenus.map((menu) => (
-            <MenuCard
-              key={menu.name}
-              image={menu.image}
-              name={menu.name}
-              origin={menu.origin}
-              description={menu.description}
-              slug={menu.slug}
-            />
-          ))}
+          ) : (
+            filteredMenus.map((menu) => (
+              <MenuCard
+                key={menu.name}
+                image={menu.image}
+                name={menu.name}
+                origin={menu.origin}
+                description={menu.description}
+                slug={menu.slug}
+                isFavorite={favorites.includes(menu.slug)}
+                onToggleFavorite={toggleFavorite}
+              />
+            ))
+          )}
         </div>
       </section>
 
@@ -106,6 +176,7 @@ export default function Page() {
               Dari rempah yang kuat hingga racikan sederhana, kuliner Nusantara
               mencerminkan keragaman budaya yang hidup di setiap wilayah Indonesia.
             </p>
+
             <p>
               Kenali asalnya, pahami ceritanya, dan temukan rasa yang membuat setiap
               makanan Indonesia begitu berkesan.
@@ -114,24 +185,38 @@ export default function Page() {
 
           <div className="about-values">
             <div className="about-value">
-              <span className="about-value-icon" aria-hidden="true">✦</span>
+              <span className="about-value-icon" aria-hidden="true">
+                ✦
+              </span>
               <div>
                 <h3>Rasa autentik</h3>
-                <p>Resep tradisional dengan cita rasa yang khas dari daerah asalnya.</p>
+                <p>
+                  Resep tradisional dengan cita rasa yang khas dari daerah asalnya.
+                </p>
               </div>
             </div>
+
             <div className="about-value">
-              <span className="about-value-icon" aria-hidden="true">♨</span>
+              <span className="about-value-icon" aria-hidden="true">
+                ♨
+              </span>
               <div>
                 <h3>Warisan budaya</h3>
-                <p>Teknik dan bahan lokal yang membentuk karakter setiap hidangan.</p>
+                <p>
+                  Teknik dan bahan lokal yang membentuk karakter setiap hidangan.
+                </p>
               </div>
             </div>
+
             <div className="about-value">
-              <span className="about-value-icon" aria-hidden="true">⌂</span>
+              <span className="about-value-icon" aria-hidden="true">
+                ⌂
+              </span>
               <div>
                 <h3>Tempat untuk bersama</h3>
-                <p>Makanan yang menjadi bagian dari tradisi, perayaan, dan keseharian.</p>
+                <p>
+                  Makanan yang menjadi bagian dari tradisi, perayaan, dan keseharian.
+                </p>
               </div>
             </div>
           </div>
@@ -139,9 +224,10 @@ export default function Page() {
       </section>
 
       <footer className="footer">
-        <p>© 2026 Rasa Nusantara. Jelajahi kekayaan kuliner Indonesia.</p>
+        <p>
+          © 2026 Rasa Nusantara. Jelajahi kekayaan kuliner Indonesia.
+        </p>
       </footer>
     </>
   );
 }
-
