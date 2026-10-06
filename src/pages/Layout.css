@@ -109,17 +109,10 @@ body {
   /* Jarak logo ke menu */
   margin-right: 60px;
 }
-.favorite-nav {
+.navbar-actions {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  color: #fff8ef;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.favorite-nav:hover {
-  color: #f4b183;
+  gap: 16px;
 }
 
 /* =========================
@@ -788,6 +781,7 @@ body {
 /* MENU CARD */
 
 .menu-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -844,6 +838,26 @@ body {
   height: 230px;
 
   object-fit: cover;
+}
+
+.menu-popularity {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 56px;
+  min-height: 36px;
+  padding: 0 9px;
+  border-radius: 8px;
+  background: rgba(255, 248, 239, 0.96);
+  color: #c85a3f;
+  box-shadow: 0 3px 12px rgba(53, 35, 28, 0.16);
+  font-size: 13px;
+  font-weight: 700;
+  pointer-events: none;
 }
 
 .menu-content {
@@ -1716,6 +1730,47 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 0;
+    padding: 12px 18px;
+    gap: 12px;
+  }
+
+  .logo {
+    order: 0;
+    min-width: 0;
+    margin-right: 0;
+    font-size: 18px;
+  }
+
+  .navbar-actions {
+    order: 1;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 440px) {
+  .navbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 12px 14px;
+    column-gap: 8px;
+  }
+
+  .logo {
+    gap: 6px;
+    font-size: 16px;
+  }
+
+  .navbar-actions {
+    width: auto;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}
+
 .language-switch {
   display: inline-flex;
   align-items: center;
@@ -1747,192 +1802,5 @@ body {
   outline: 2px solid #fff8ef;
   outline-offset: 2px;
 }
-.favorite-page {
-  max-width: 1250px;
-  margin: 0 auto;
-  padding: 70px 30px 90px;
-  min-height: 80vh;
-}
-
-.favorite-header {
-  text-align: center;
-  margin-bottom: 45px;
-}
-
-.favorite-header h1 {
-  margin-bottom: 12px;
-  color: #35231c;
-  font-size: clamp(36px, 5vw, 52px);
-}
-
-.favorite-header p:last-child {
-  color: #806f64;
-}
-
-.favorite-empty {
-  text-align: center;
-  padding: 70px 20px;
-  color: #806f64;
-}
-
-.favorite-empty svg {
-  color: #c85a3f;
-  margin-bottom: 15px;
-}
-
-.favorite-empty h2 {
-  color: #35231c;
-  margin-bottom: 8px;
-}
-
-.favorite-empty a {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 20px;
-  border-radius: 10px;
-  background: #c85a3f;
-  color: white;
-  text-decoration: none;
-}
-/* =====================================================
-   FAVORITE PAGE
-===================================================== */
-
-.favorite-page {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 70px 30px 90px;
-}
-
-.favorite-header {
-  margin-bottom: 40px;
-}
-
-.favorite-header .subtitle {
-  margin-bottom: 12px;
-}
-
-.favorite-header h1 {
-  margin: 0 0 10px;
-  color: #35231c;
-  font-size: clamp(36px, 5vw, 52px);
-  line-height: 1.1;
-}
-
-.favorite-header p:not(.subtitle) {
-  margin: 0;
-  color: #806f64;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* Grid khusus halaman favorit */
-.favorite-page .menu-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
-}
-
-/* Kondisi belum ada favorit */
-.favorite-empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-  padding: 40px 30px;
-  text-align: center;
-  background: white;
-  border: 1px solid #ead8c6;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(53, 35, 28, 0.08);
-}
-
-.favorite-empty svg {
-  margin-bottom: 16px;
-  color: #c85a3f;
-}
-
-.favorite-empty h2 {
-  margin-bottom: 10px;
-  color: #35231c;
-}
-
-.favorite-empty p {
-  margin-bottom: 20px;
-  color: #806f64;
-}
-
-.favorite-empty a {
-  display: inline-flex;
-  padding: 12px 20px;
-  border-radius: 10px;
-  background: #c85a3f;
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.favorite-empty a:hover {
-  background: #9f402c;
-}
 
 
-/* =====================================================
-   FAVORITE RESPONSIVE
-===================================================== */
-
-@media (max-width: 900px) {
-  .favorite-page .menu-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-  .favorite-page {
-    padding: 45px 18px 65px;
-  }
-
-  .favorite-page .menu-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .favorite-header h1 {
-    font-size: 36px;
-  }
-}
-/* =====================================================
-   FAVORITE NOTIFICATION
-===================================================== */
-
-.favorite-notification {
-  position: fixed;
-  top: 80px;
-  right: 25px;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
-  border-radius: 12px;
-  background: #35231c;
-  color: #fff8ef;
-  box-shadow: 0 10px 30px rgba(53, 35, 28, 0.2);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.favorite-notification svg {
-  color: #f4b183;
-  flex-shrink: 0;
-}
-
-@media (max-width: 600px) {
-  .favorite-notification {
-    top: 70px;
-    right: 18px;
-    left: 18px;
-    justify-content: center;
-  }
-}

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { MapPin, Heart } from "lucide-react";
+import { useLanguage } from "./LanguageContext";
 
 export default function MenuCard({
   image,
@@ -8,10 +9,11 @@ export default function MenuCard({
   description,
   slug,
   revealIndex,
-  originLabel = "Asal",
-  isFavorite = false,
-  onToggleFavorite,
+  originLabel,
+  likeCount = 0,
 }) {
+  const { language } = useLanguage();
+  const english = language === "en";
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -49,23 +51,17 @@ export default function MenuCard({
     >
       <img src={image} alt={name} />
 
-      <button
-        type="button"
-        className={`favorite-btn ${isFavorite ? "active" : ""}`}
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          onToggleFavorite?.(slug);
-        }}
+      <span
+        className="menu-popularity"
         aria-label={
-          isFavorite ? "Hapus dari favorit" : "Tambah ke favorit"
+          english
+            ? `${likeCount} likes (sample data)`
+            : `${likeCount} orang menyukai (data simulasi)`
         }
       >
-        <Heart
-          size={21}
-          fill={isFavorite ? "currentColor" : "none"}
-        />
-      </button>
+        <Heart size={17} fill="currentColor" aria-hidden="true" />
+        <span>{likeCount}</span>
+      </span>
 
       <div className="menu-content">
         <h3>{name}</h3>
@@ -73,7 +69,7 @@ export default function MenuCard({
         <p className="menu-origin">
           <MapPin size={14} />
           <span>
-            {originLabel}: {origin}
+            {originLabel || (english ? "Origin" : "Asal")}: {origin}
           </span>
         </p>
 
