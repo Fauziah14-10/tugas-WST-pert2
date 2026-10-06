@@ -452,4 +452,33 @@ export const menus = [
 
 ];
 
+export const menuLikeCounts = {
+  "nasi-goreng-spesial": 245,
+  "ayam-bakar": 128,
+  "rendang-daging": 312,
+  gudeg: 176,
+  "sate-ayam": 220,
+  pempek: 193,
+  rawon: 155,
+  "gado-gado": 118,
+  papeda: 86,
+  "soto-ayam": 208,
+  "laksa-betawi": 97,
+  klepon: 264,
+  "mie-ayam": 189,
+  "mie-aceh": 143,
+  "sate-maranggi": 104,
+  dodongkal: 73,
+  risol: 167,
+  "sayur-asem": 111,
+  "sayur-lodeh": 93,
+  "dadar-gulung": 136,
+  serabi: 121,
+  "tumis-kangkung": 81,
+  "nasi-uduk": 201,
+  batagor: 178,
+  "sate-padang": 159,
+  "mie-ongklok": 66,
+};
+
 

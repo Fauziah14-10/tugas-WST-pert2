@@ -1,7 +1,19 @@
 import { useEffect, useRef } from "react";
-import { MapPin } from "lucide-react";
+import { MapPin, Heart } from "lucide-react";
+import { useLanguage } from "./LanguageContext";
 
-export default function MenuCard({ image, name, origin, description, slug, revealIndex, originLabel = "Asal" }) {
+export default function MenuCard({
+  image,
+  name,
+  origin,
+  description,
+  slug,
+  revealIndex,
+  originLabel,
+  likeCount = 0,
+}) {
+  const { language } = useLanguage();
+  const english = language === "en";
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -13,14 +25,18 @@ export default function MenuCard({ image, name, origin, description, slug, revea
       return;
     }
 
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        card.classList.add("is-visible");
-        observer.unobserve(card);
-      }
-    }, { threshold: 0.12 });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          card.classList.add("is-visible");
+          observer.unobserve(card);
+        }
+      },
+      { threshold: 0.12 }
+    );
 
     observer.observe(card);
+
     return () => observer.disconnect();
   }, []);
 
@@ -29,16 +45,32 @@ export default function MenuCard({ image, name, origin, description, slug, revea
       ref={cardRef}
       className="menu-card"
       href={`/food/${slug}`}
-      style={{ "--reveal-delay": `${Math.min(revealIndex, 5) * 65}ms` }}
+      style={{
+        "--reveal-delay": `${Math.min(revealIndex, 5) * 65}ms`,
+      }}
     >
       <img src={image} alt={name} />
+
+      <span
+        className="menu-popularity"
+        aria-label={
+          english
+            ? `${likeCount} likes (sample data)`
+            : `${likeCount} orang menyukai (data simulasi)`
+        }
+      >
+        <Heart size={17} fill="currentColor" aria-hidden="true" />
+        <span>{likeCount}</span>
+      </span>
 
       <div className="menu-content">
         <h3>{name}</h3>
 
         <p className="menu-origin">
           <MapPin size={14} />
-          <span>{originLabel}: {origin}</span>
+          <span>
+            {originLabel || (english ? "Origin" : "Asal")}: {origin}
+          </span>
         </p>
 
         <p>{description}</p>

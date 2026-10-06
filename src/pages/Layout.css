@@ -109,7 +109,11 @@ body {
   /* Jarak logo ke menu */
   margin-right: 60px;
 }
-
+.navbar-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
 
 /* =========================
    NAV MENU
@@ -777,6 +781,7 @@ body {
 /* MENU CARD */
 
 .menu-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -833,6 +838,26 @@ body {
   height: 230px;
 
   object-fit: cover;
+}
+
+.menu-popularity {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 56px;
+  min-height: 36px;
+  padding: 0 9px;
+  border-radius: 8px;
+  background: rgba(255, 248, 239, 0.96);
+  color: #c85a3f;
+  box-shadow: 0 3px 12px rgba(53, 35, 28, 0.16);
+  font-size: 13px;
+  font-weight: 700;
+  pointer-events: none;
 }
 
 .menu-content {
@@ -1705,6 +1730,47 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 0;
+    padding: 12px 18px;
+    gap: 12px;
+  }
+
+  .logo {
+    order: 0;
+    min-width: 0;
+    margin-right: 0;
+    font-size: 18px;
+  }
+
+  .navbar-actions {
+    order: 1;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 440px) {
+  .navbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 12px 14px;
+    column-gap: 8px;
+  }
+
+  .logo {
+    gap: 6px;
+    font-size: 16px;
+  }
+
+  .navbar-actions {
+    width: auto;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}
+
 .language-switch {
   display: inline-flex;
   align-items: center;
@@ -1736,3 +1802,5 @@ body {
   outline: 2px solid #fff8ef;
   outline-offset: 2px;
 }
+
+

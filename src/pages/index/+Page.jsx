@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import MenuCard from "../../components/MenuCard";
 import { useLanguage } from "../../components/LanguageContext";
-import { menus } from "../../data/menus.js";
+import { menus, menuLikeCounts } from "../../data/menus.js";
 import { menuTranslations } from "../../data/menuTranslations.js";
 
 export default function Page() {
@@ -63,7 +63,7 @@ export default function Page() {
         origin: "Asal",
       };
 
-  const handleExplore = () => {
+  const handleCelebrate = () => {
     confetti({
       particleCount: 75,
       spread: 65,
@@ -82,6 +82,7 @@ export default function Page() {
     "Makanan Berkuah": "Soups",
     Sayuran: "Vegetables",
   };
+
   const filteredMenus = menus.filter((menu) => {
     return activeCategory === "Semua" || menu.category === activeCategory;
   });
@@ -101,7 +102,7 @@ export default function Page() {
           </p>
 
           <div className="hero-actions">
-            <a href="#menu" className="hero-button" onClick={handleExplore}>
+            <a href="#menu" className="hero-button" onClick={handleCelebrate}>
               <span>{copy.explore}</span>
               <ArrowRight size={18} />
             </a>
@@ -117,7 +118,10 @@ export default function Page() {
         </div>
 
         <div className="menu-tools">
-          <div className="category-filters" aria-label={copy.filterLabel}>
+          <div
+            className="category-filters"
+            aria-label={copy.filterLabel}
+          >
             {categories.map((category) => (
               <button
                 key={category}
@@ -137,18 +141,21 @@ export default function Page() {
               <strong>{copy.notFound}</strong>
               <span>{copy.tryAnother}</span>
             </div>
-          ) : filteredMenus.map((menu, index) => (
-            <MenuCard
-              key={menu.name}
-              image={menu.image}
-              name={menu.name}
-              origin={menu.origin}
-              description={english ? menuTranslations[menu.slug]?.description || menu.description : menu.description}
-              slug={menu.slug}
-              revealIndex={index}
-              originLabel={copy.origin}
-            />
-          ))}
+          ) : (
+            filteredMenus.map((menu, index) => (
+              <MenuCard
+                key={menu.name}
+                image={menu.image}
+                name={menu.name}
+                origin={menu.origin}
+                description={english ? menuTranslations[menu.slug]?.description || menu.description : menu.description}
+                slug={menu.slug}
+                revealIndex={index}
+                originLabel={copy.origin}
+                likeCount={menuLikeCounts[menu.slug]}
+              />
+            ))
+          )}
         </div>
       </section>
 
@@ -156,7 +163,9 @@ export default function Page() {
         <div className="section-heading">
           <p className="section-kicker">{copy.aboutKicker}</p>
           <h2>{copy.aboutTitle}</h2>
-          <p className="section-lead">{copy.aboutLead}</p>
+          <p className="section-lead">
+            {copy.aboutLead}
+          </p>
         </div>
 
         <div className="about-content">
@@ -164,6 +173,7 @@ export default function Page() {
             <p>
               {copy.storyOne}
             </p>
+
             <p>
               {copy.storyTwo}
             </p>
@@ -171,21 +181,29 @@ export default function Page() {
 
           <div className="about-values">
             <div className="about-value">
-              <span className="about-value-icon" aria-hidden="true">✦</span>
+              <span className="about-value-icon" aria-hidden="true">
+                ✦
+              </span>
               <div>
                 <h3>{copy.authentic}</h3>
                 <p>{copy.authenticText}</p>
               </div>
             </div>
+
             <div className="about-value">
-              <span className="about-value-icon" aria-hidden="true">♨</span>
+              <span className="about-value-icon" aria-hidden="true">
+                ♨
+              </span>
               <div>
                 <h3>{copy.heritage}</h3>
                 <p>{copy.heritageText}</p>
               </div>
             </div>
+
             <div className="about-value">
-              <span className="about-value-icon" aria-hidden="true">⌂</span>
+              <span className="about-value-icon" aria-hidden="true">
+                ⌂
+              </span>
               <div>
                 <h3>{copy.together}</h3>
                 <p>{copy.togetherText}</p>
@@ -196,9 +214,10 @@ export default function Page() {
       </section>
 
       <footer className="footer">
-        <p>{copy.footer}</p>
+        <p>
+          {copy.footer}
+        </p>
       </footer>
     </>
   );
 }
-
